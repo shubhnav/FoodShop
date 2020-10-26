@@ -12,6 +12,7 @@ class App extends Component {
   async handleClick(){
     return new Promise(async(resolve,reject)=>{
       await fetch("http://starlord.hackerearth.com/insta",{
+          crossDomain:true,
           method: "get",
           headers:{
             "Content-Type":"application/json"
