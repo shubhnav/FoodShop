@@ -1,10 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
+class App extends Component {
+  constructor(props){
+    super(props);
+  }
+  render(){
   return (
-  <>hello</>
-  );
+  <>hello
+  <button type="button" onClick={this.handleClick}>Click Me!</button> </>
+  )}
+  async handleClick(){
+    return new Promise(async(resolve,reject)=>{
+      await fetch("http://starlord.hackerearth.com/insta",{
+          method: "post",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body: JSON.stringify(req)
+        }).then( async function(response){
+          console.log("response",response);
+          let data = await response.json();
+          return data;
+        }).then(data=>{
+          
+        })
+    })
+    }
 }
 
 export default App;
