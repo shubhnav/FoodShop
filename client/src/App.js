@@ -12,17 +12,16 @@ class App extends Component {
   async handleClick(){
     return new Promise(async(resolve,reject)=>{
       await fetch("http://starlord.hackerearth.com/insta",{
-          method: "post",
+          method: "get",
           headers:{
             "Content-Type":"application/json"
-          },
-          body: JSON.stringify(req)
+          }
         }).then( async function(response){
           console.log("response",response);
           let data = await response.json();
           return data;
         }).then(data=>{
-          
+
         })
     })
     }
