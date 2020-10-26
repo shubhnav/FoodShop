@@ -11,7 +11,7 @@ class App extends Component {
   )}
   async handleClick(){
     return new Promise(async(resolve,reject)=>{
-      await fetch("http://starlord.hackerearth.com/insta",{
+      await fetch("/hello",{
           mode: 'cors',
           method: "get",
           headers:{
