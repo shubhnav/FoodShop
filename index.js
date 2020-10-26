@@ -6,7 +6,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/hello', (req, res) => {
-  res.redirect("https://www.google.com/")
+  //res.redirect("https://www.google.com/")
+  res.json({msg: 'This is CORS-enabled for all origins!'})
 });
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
