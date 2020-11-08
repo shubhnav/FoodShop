@@ -12,16 +12,7 @@ class App extends Component {
   render(){
     if(this.state.data === true){
       return(
-        <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top"  />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            {this.state.cards}
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
+          <>{this.state.cards}</>
       )
     }
     else{
@@ -45,7 +36,18 @@ class App extends Component {
             var cards = []
             console.log("response",data)
             for(let index = 0; index<data.length ;index++){
-              cards.push(<Button variant="primary">{data[index].name}</Button>)
+              cards.push(
+                <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" width = "400" height = "400" src = {data[index].image}/>
+                <Card.Body>
+                  <Card.Title>{data[index].name}</Card.Title>
+                  <Card.Text>
+                      "Price : "{data[index].price}
+                  </Card.Text>
+                  <Button variant="primary">Go somewhere</Button>
+                </Card.Body>
+              </Card>
+            )
             }
             this.setState({
               data: true,
