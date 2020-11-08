@@ -29,7 +29,7 @@ export default class PaymentForm extends React.Component {
     return (
       <Card style={{ width: '30rem' }}>
       <Card.Body>
-         <Card.Title>{this.props.data.price}</Card.Title>
+         <Card.Title>Total: {this.props.data.price}</Card.Title>
          <Card.Text>
             {this.props.data.name}
          </Card.Text>
@@ -74,7 +74,6 @@ export default class PaymentForm extends React.Component {
             name="cvc"
             placeholder="CVV"
             onChange={this.handleInputChange}
-            onFocus={this.handleInputFocus}
           />
           <br/>
         </Form >
