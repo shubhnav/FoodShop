@@ -4,16 +4,18 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state= {
-      cards : []
+      cards : [],
+      data: false
     }
   }
   render(){
-  return (
-    <>
-     <Button  variant="primary" onClick = {this.handleOnClick}>Click Me!</Button>
-     <>{this.state.cards}</>
-     </>
-  )}
+    if(this.state.data === true){
+      return(<>{this.state.cards}</>)
+    }
+    else{
+      return (<Button  variant="primary" onClick = {this.handleOnClick}>Click Me!</Button>)
+    }
+  }
 
   async handleOnClick(){
     return new Promise(async(resolve,reject)=>{
@@ -28,13 +30,14 @@ class App extends Component {
           return data;
         }).then(data=>{
             data = data.data
-            let cards = []
+            var cards = []
             console.log("response",data)
-            for(let index = 0;index<data.length;index++){
+            for(let index = 0; index<data.length ;index++){
               cards.push(<Button variant="primary">{data[index].name}</Button>)
             }
             this.setState({
-              cards: cards
+              cards: cards,
+              data: true
             })
         })
     })
