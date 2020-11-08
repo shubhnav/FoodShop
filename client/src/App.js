@@ -4,13 +4,15 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state= {
-      cards = []
+      cards : []
     }
   }
   render(){
   return (
+    <>
      <button type="button" onClick = {this.handleOnClick}>Click Me!</button>
      <>{this.state.cards}</>
+     </>
   )}
 
   async handleOnClick(){
@@ -26,9 +28,13 @@ class App extends Component {
           return data;
         }).then(data=>{
             data = data.data
+            let cards = []
             for(let index = 0;index<data.length;index++){
-              cards.push(<Button variant="primary">{data[index].name}</Button>{' '})
+              cards.push(<Button variant="primary">{data[index].name}</Button>)
             }
+            this.setState({
+              cards: cards
+            })
         })
     })
     }
