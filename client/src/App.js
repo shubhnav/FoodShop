@@ -46,9 +46,9 @@ class App extends Component {
               cards.push(
                 <Card border = "primary" style={{ width: '18rem' }}>
                 <Card.Header>{data[index].name}</Card.Header>
-                <Card.Img variant="top" width = "400" height = "400" src = {data[index].image}/>
+                <Card.Img variant="top" width = "400" height = "300" src = {data[index].image}/>
                 <Card.Body>
-                  <Card.Title>{data[index].price}</Card.Title>
+                  <Card.Title>$: {data[index].price}</Card.Title>
                   <Card.Text>
                       {data[index].description}
                   </Card.Text>
