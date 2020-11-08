@@ -1,5 +1,6 @@
 import React from 'react';
 import Cards from 'react-credit-cards';
+import { Form, Card, Button } from 'react-bootstrap';
 
 import 'react-credit-cards/es/styles-compiled.css';
 
@@ -27,8 +28,12 @@ export default class PaymentForm extends React.Component {
   render() {
     console.log("response",this.props)
     return (
-      <>
-      <>{this.props.data.name}->{this.props.data.price}</>
+      <Card>
+      <Card.Body>
+         <Card.Title>{this.props.data.price}</Card.Title>
+         <Card.Text>
+            {this.props.data.name}
+         </Card.Text>
       <div id="PaymentForm">
         <Cards
           cvc={this.state.cvc}
@@ -37,8 +42,8 @@ export default class PaymentForm extends React.Component {
           name={this.state.name}
           number={this.state.number}
         />
-        <form>
-        	<input
+        <Form >
+        	<Form.Control
             type="tel"
             name="number"
             placeholder="Card Number"
@@ -46,7 +51,7 @@ export default class PaymentForm extends React.Component {
             onFocus={this.handleInputFocus}
           />
           <br/>
-          <input
+          <Form.Control
             type="tel"
             name="name"
             placeholder="Card Name"
@@ -54,7 +59,7 @@ export default class PaymentForm extends React.Component {
             onFocus={this.handleInputFocus}
           />
           <br/>
-          <input
+          <Form.Control
             type="tel"
             name="expiry"
             placeholder="Valid"
@@ -62,7 +67,7 @@ export default class PaymentForm extends React.Component {
             onFocus={this.handleInputFocus}
           />
           <br/>
-          <input
+          <Form.Control
             type="tel"
             name="cvc"
             placeholder="CVV"
@@ -70,9 +75,11 @@ export default class PaymentForm extends React.Component {
             onFocus={this.handleInputFocus}
           />
           <br/>
-        </form>
+        </Form >
       </div>
-      </>
+      <Button variant="primary">Pay</Button>
+      <Card.Body>
+      </Card>
     );
   }
 }
