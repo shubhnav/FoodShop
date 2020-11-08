@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 class App extends Component {
   constructor(props){
     super(props);
@@ -11,7 +11,18 @@ class App extends Component {
   }
   render(){
     if(this.state.data === true){
-      return(<>hello 2</>)
+      return(
+        <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top"  />
+        <Card.Body>
+          <Card.Title>Card Title</Card.Title>
+          <Card.Text>
+            {this.state.cards}
+          </Card.Text>
+          <Button variant="primary">Go somewhere</Button>
+        </Card.Body>
+      </Card>
+      )
     }
     else{
       return (<Button  variant="primary" onClick = {this.handleOnClick}>Click Me!</Button>)
@@ -37,7 +48,8 @@ class App extends Component {
               cards.push(<Button variant="primary">{data[index].name}</Button>)
             }
             this.setState({
-              data: true
+              data: true,
+              cards: cards
             })
         })
     })
