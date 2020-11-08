@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button , CardGroup} from 'react-bootstrap';
 class App extends Component {
   constructor(props){
     super(props);
@@ -12,7 +12,7 @@ class App extends Component {
   render(){
     if(this.state.data === true){
       return(
-          <>{this.state.cards}</>
+          <CardGroup>{this.state.cards}</CardGroup>
       )
     }
     else{
@@ -37,14 +37,15 @@ class App extends Component {
             console.log("response",data)
             for(let index = 0; index<data.length ;index++){
               cards.push(
-                <Card style={{ width: '18rem' }}>
+                <Card border = "primary" style={{ width: '18rem' }}>
+                <Card.Header>{data[index].name}</Card.Header>
                 <Card.Img variant="top" width = "400" height = "400" src = {data[index].image}/>
                 <Card.Body>
-                  <Card.Title>{data[index].name}</Card.Title>
+                  <Card.Title>{data[index].price}</Card.Title>
                   <Card.Text>
-                      "Price : "{data[index].price}
+                      {data[index].description}
                   </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
+                  <Button variant="primary">Buy Now</Button>
                 </Card.Body>
               </Card>
             )
