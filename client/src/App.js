@@ -31,7 +31,7 @@ class App extends Component {
           let data = await response.json();
           return data;
         }).then(data=>{
-          console.log("response",response);
+          console.log("response",data);
         })
     })
     }
