@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/hello', (req, res) => {
-  var url = "http://starlord.hackerearth.com/insta";
+  var url = "http://starlord.hackerearth.com/recipe";
   fetch(url)
     .then(res => res.json())
     .then(data => {
