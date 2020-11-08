@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { Card, Button , CardGroup} from 'react-bootstrap';
+import { Card, Button , CardColumns} from 'react-bootstrap';
+import Pay from './Pay/Payment';
+
+const PAYMENT = 1;
+const NON_PAYMENT = 0;
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -10,17 +15,19 @@ class App extends Component {
     this.handleOnClick = this.handleOnClick.bind(this)
   }
   render(){
-    if(this.state.data === true){
-      return(
-          <CardGroup>{this.state.cards}</CardGroup>
-      )
-    }
-    else{
-      return (<Button  variant="primary" onClick = {this.handleOnClick}>Click Me!</Button>)
+    var page = this.state.page
+    switch (page) {
+      case NON_PAYMENT:
+        return (<CardColumns>{this.state.cards}</CardColumns>);
+        break;
+      case PAYMENT:
+        return (<Pay data = {this.state.selectedItem}/>);
+        break;
+      default:
+        return (<>Loading..</>)
     }
   }
   componentDidMount(){
-    console.log("called")
     return new Promise(async(resolve,reject)=>{
       await fetch("/hello",{
           mode: 'cors',
@@ -45,55 +52,26 @@ class App extends Component {
                   <Card.Text>
                       {data[index].description}
                   </Card.Text>
-                  <Button variant="primary">Buy Now</Button>
+                  <Button variant="primary" value = {data[index]} onClick = {this.handleOnClick} >Buy Now</Button>
                 </Card.Body>
               </Card>
             )
             }
             this.setState({
-              data: true,
+              page: NON_PAYMENT,
               cards: cards
             })
         })
     })
   }
-  async handleOnClick(){
-    return new Promise(async(resolve,reject)=>{
-      await fetch("/hello",{
-          mode: 'cors',
-          method: "get",
-          headers:{
-            "Content-Type":"application/json"
-          }
-        }).then( async function(response){
-          let data = await response.json();
-          return data;
-        }).then(data=>{
-            data = data.data
-            var cards = []
-            console.log("response",data)
-            for(let index = 0; index<data.length ;index++){
-              cards.push(
-                <Card border = "primary" style={{ width: '18rem' }}>
-                <Card.Header>{data[index].name}</Card.Header>
-                <Card.Img variant="top" width = "400" height = "400" src = {data[index].image}/>
-                <Card.Body>
-                  <Card.Title>{data[index].price}</Card.Title>
-                  <Card.Text>
-                      {data[index].description}
-                  </Card.Text>
-                  <Button variant="primary">Buy Now</Button>
-                </Card.Body>
-              </Card>
-            )
-            }
-            this.setState({
-              data: true,
-              cards: cards
-            })
-        })
-    })
-    }
+
+  handleOnClick=event=>{
+      console.log("Selected item", event.target.value);
+      this.setState({
+          selectedItem : event.target.value,
+          page : PAYMENT
+      });
+  }
 }
 
 export default App;
