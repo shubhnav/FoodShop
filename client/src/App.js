@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 class App extends Component {
   constructor(props){
     super(props);
@@ -10,7 +10,7 @@ class App extends Component {
   render(){
   return (
     <>
-     <button type="button" onClick = {this.handleOnClick}>Click Me!</button>
+     <Button  variant="primary" onClick = {this.handleOnClick}>Click Me!</Button>
      <>{this.state.cards}</>
      </>
   )}
@@ -29,6 +29,7 @@ class App extends Component {
         }).then(data=>{
             data = data.data
             let cards = []
+            console.log("response",data)
             for(let index = 0;index<data.length;index++){
               cards.push(<Button variant="primary">{data[index].name}</Button>)
             }
