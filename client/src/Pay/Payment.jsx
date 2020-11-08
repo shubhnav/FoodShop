@@ -26,6 +26,7 @@ export default class PaymentForm extends React.Component {
   }
 
   render() {
+    console.log("response",this.props)
     return (
       <>
       <>{this.props.data.name}->{this.props.data.price}</>
@@ -45,7 +46,31 @@ export default class PaymentForm extends React.Component {
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           />
-          ...
+          </br>
+          <input
+            type="tel"
+            name="number"
+            placeholder="Card Name"
+            onChange={this.handleInputChange}
+            onFocus={this.handleInputFocus}
+          />
+          </br>
+          <input
+            type="tel"
+            name="number"
+            placeholder="Valid"
+            onChange={this.handleInputChange}
+            onFocus={this.handleInputFocus}
+          />
+          </br>
+          <input
+            type="tel"
+            name="number"
+            placeholder="CVV"
+            onChange={this.handleInputChange}
+            onFocus={this.handleInputFocus}
+          />
+          </br>
         </form>
       </div>
       </>

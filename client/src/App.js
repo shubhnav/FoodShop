@@ -41,7 +41,6 @@ class App extends Component {
         }).then(data=>{
             data = data.data
             var cards = []
-            console.log("response",data)
             for(let index = 0; index<data.length ;index++){
               cards.push(
                 <Card border = "primary" style={{ width: '18rem' }}>
