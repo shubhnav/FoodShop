@@ -21,7 +21,6 @@ export default class PaymentForm extends React.Component {
 
   handleInputChange = (e) => {
     const { name, value } = e.target;
-
     this.setState({ [name]: value });
   }
 
@@ -49,7 +48,7 @@ export default class PaymentForm extends React.Component {
           <br/>
           <input
             type="tel"
-            name="number"
+            name="name"
             placeholder="Card Name"
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
@@ -57,7 +56,7 @@ export default class PaymentForm extends React.Component {
           <br/>
           <input
             type="tel"
-            name="number"
+            name="expiry"
             placeholder="Valid"
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
@@ -65,7 +64,7 @@ export default class PaymentForm extends React.Component {
           <br/>
           <input
             type="tel"
-            name="number"
+            name="cvc"
             placeholder="CVV"
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}

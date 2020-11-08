@@ -51,14 +51,15 @@ class App extends Component {
                   <Card.Text>
                       {data[index].description}
                   </Card.Text>
-                  <Button variant="primary" value = {data[index]} onClick = {this.handleOnClick} >Buy Now</Button>
+                  <Button variant="primary" value = {index} onClick = {this.handleOnClick} >Buy Now</Button>
                 </Card.Body>
               </Card>
             )
             }
             this.setState({
               page: NON_PAYMENT,
-              cards: cards
+              cards: cards,
+              data: data
             })
         })
     })
@@ -66,8 +67,10 @@ class App extends Component {
 
   handleOnClick=event=>{
       console.log("Selected item", event.target.value);
+      let index = parseInt(event.target.value)
+      let selected = this.state.data[index]
       this.setState({
-          selectedItem : event.target.value,
+          selectedItem : selected,
           page : PAYMENT
       });
   }
