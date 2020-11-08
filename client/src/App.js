@@ -7,9 +7,8 @@ class App extends Component {
   render(){
   return (
   <>hello
-  <button type="button" onClick={this.handleClick}>Click Me!</button> </>
   )}
-  async handleClick(){
+  async componentWillMount(){
     return new Promise(async(resolve,reject)=>{
       await fetch("/hello",{
           mode: 'cors',
