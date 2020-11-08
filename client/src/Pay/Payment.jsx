@@ -46,7 +46,7 @@ export default class PaymentForm extends React.Component {
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           />
-          </br>
+          <br/>
           <input
             type="tel"
             name="number"
@@ -54,7 +54,7 @@ export default class PaymentForm extends React.Component {
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           />
-          </br>
+          <br/>
           <input
             type="tel"
             name="number"
@@ -62,7 +62,7 @@ export default class PaymentForm extends React.Component {
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           />
-          </br>
+          <br/>
           <input
             type="tel"
             name="number"
@@ -70,7 +70,7 @@ export default class PaymentForm extends React.Component {
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           />
-          </br>
+          <br/>
         </form>
       </div>
       </>
