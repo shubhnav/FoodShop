@@ -10,7 +10,7 @@ class App extends Component {
   }
   render(){
     if(this.state.data === true){
-      return(<>{this.state.cards}</>)
+      return(<>hello 2</>)
     }
     else{
       return (<Button  variant="primary" onClick = {this.handleOnClick}>Click Me!</Button>)
@@ -36,7 +36,6 @@ class App extends Component {
               cards.push(<Button variant="primary">{data[index].name}</Button>)
             }
             this.setState({
-              cards: cards,
               data: true
             })
         })
