@@ -74,6 +74,7 @@ export default class PaymentForm extends React.Component {
             name="cvc"
             placeholder="CVV"
             onChange={this.handleInputChange}
+            onFocus={this.handleInputFocus}
           />
           <br/>
         </Form >
