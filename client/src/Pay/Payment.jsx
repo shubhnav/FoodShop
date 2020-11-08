@@ -26,9 +26,8 @@ export default class PaymentForm extends React.Component {
   }
 
   render() {
-    console.log("response",this.props)
     return (
-      <Card>
+      <Card style={{ width: '30rem' }}>
       <Card.Body>
          <Card.Title>{this.props.data.price}</Card.Title>
          <Card.Text>
@@ -54,6 +53,7 @@ export default class PaymentForm extends React.Component {
           <Form.Control
             type="tel"
             name="name"
+            pattern="[A-Za-z]{3}"
             placeholder="Card Name"
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
@@ -61,6 +61,7 @@ export default class PaymentForm extends React.Component {
           <br/>
           <Form.Control
             type="tel"
+            pattern="[0-9]{4}"
             name="expiry"
             placeholder="Valid"
             onChange={this.handleInputChange}
@@ -68,7 +69,8 @@ export default class PaymentForm extends React.Component {
           />
           <br/>
           <Form.Control
-            type="tel"
+            type="password"
+            pattern="[0-9]{3}"
             name="cvc"
             placeholder="CVV"
             onChange={this.handleInputChange}
