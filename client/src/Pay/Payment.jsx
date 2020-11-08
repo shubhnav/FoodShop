@@ -78,7 +78,7 @@ export default class PaymentForm extends React.Component {
         </Form >
       </div>
       <Button variant="primary">Pay</Button>
-      <Card.Body>
+      </Card.Body>
       </Card>
     );
   }
