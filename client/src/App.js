@@ -7,6 +7,7 @@ class App extends Component {
       cards : [],
       data: false
     }
+    this.handleOnClick = this.handleOnClick.bind(this)
   }
   render(){
     if(this.state.data === true){
