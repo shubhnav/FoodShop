@@ -51,7 +51,8 @@ class App extends Component {
                   <Card.Text>
                       {data[index].description}
                   </Card.Text>
-                  <Button variant="primary" value = {index} onClick = {this.handleOnClick} >Buy Now</Button>
+                  <Button variant="primary" value = {index} onClick =
+                  {this.handleOnClick} >Buy Now</Button>
                 </Card.Body>
               </Card>
             )
