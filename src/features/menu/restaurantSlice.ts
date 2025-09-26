@@ -12,7 +12,7 @@ type MenuApiResponse = {
       
 export const restaurantApiSlice = createApi({
     
-    baseQuery: fetchBaseQuery({baseUrl: "/api/Restaurant"}),
+    baseQuery: fetchBaseQuery({baseUrl: "https://fakerestaurantapi.runasp.net/api/Restaurant"}),
     reducerPath: "restaurantApi",
     
     endpoints: builder =>({
