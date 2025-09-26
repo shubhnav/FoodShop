@@ -12,7 +12,7 @@ type MenuApiResponse = {
       
 export const restaurantApiSlice = createApi({
     
-    baseQuery: fetchBaseQuery({baseUrl: "/api/api/Restaurant"}),
+    baseQuery: fetchBaseQuery({baseUrl: "/api/Restaurant"}),
     reducerPath: "restaurantApi",
     
     endpoints: builder =>({
