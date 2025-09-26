@@ -9,13 +9,13 @@ export default defineConfig({
   base: '/FoodShop/',
   server: {
     open: true,
-    proxy: {
-      '/api': {
-        target: 'https://fakerestaurantapi.runasp.net',
-        changeOrigin: true,
-        rewrite: path => path.replace(/^\/api/, ''),
-      },
-    }
+    // proxy: {
+    //   '/api': {
+    //     target: 'https://fakerestaurantapi.runasp.net',
+    //     changeOrigin: true,
+    //     rewrite: path => path.replace(/^\/api/, ''),
+    //   },
+    // }
   },
 
 
